@@ -4,8 +4,6 @@ import { Inter } from "next/font/google";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
-export const runtime ="experimental-edge";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
