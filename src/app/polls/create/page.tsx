@@ -28,7 +28,7 @@ export default function CreatePoll() {
         <div className="container flex flex-col justify-center items-center h-full gap-4">
             <h1>Create a Poll</h1>
             <form className="w-full flex justify-center" onSubmit={onSubmit}>
-                <Card className="w-1/2">
+                <Card className="lg:w-1/2 w-full p-4">
                     <CardHeader className="border-b-2">
                         <Label htmlFor="question">Question</Label>
                         <Input {...register("question")} />

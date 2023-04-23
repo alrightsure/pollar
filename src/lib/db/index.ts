@@ -1,8 +1,12 @@
-import { Pool } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-serverless";
+import { connect } from "@planetscale/database";
+import { drizzle } from "drizzle-orm/planetscale-serverless";
+import { env } from "@/env.mjs";
 
-export const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
+const connection = connect({
+    host: env.DATABASE_HOST,
+    username: env.DATABASE_USERNAME,
+    password: env.DATABASE_PASSWORD
 });
 
-export const db = drizzle(pool);
+export const db = drizzle(connection);
+
