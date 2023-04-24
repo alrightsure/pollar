@@ -3,8 +3,6 @@ import { db } from "@/lib/db";
 import { polls } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
-export const runtime ="experimental-edge";
-
 async function getPoll(pollId: number) {
     const pollResp = await db.select().from(polls).where(eq(polls.id, pollId));
     return pollResp[0];
