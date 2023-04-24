@@ -9,14 +9,10 @@ export function ThemeSwitch() {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return null;
+    useEffect(() => setMounted(true), []);
 
     return (
-        <Toggle aria-label="Toggle dark mode" defaultPressed={theme === "dark"} onPressedChange={e => setTheme(e ? "dark" : "light")}>
+        <Toggle aria-label="Toggle dark mode" pressed={mounted ? theme === "dark" : undefined} onPressedChange={e => setTheme(e ? "dark" : "light")}>
             <Moon className="h-4 w-4" />
         </Toggle>
     );
