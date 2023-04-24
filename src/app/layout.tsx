@@ -3,6 +3,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { Providers } from "@/components/providers";
+import { ThemeSwitch } from "@/components/themeSwitch";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,12 +15,14 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className="h-screen dark">
+        <html lang="en" className="h-screen" suppressHydrationWarning>
             <body className={cn(inter.className, "h-full")}>
-                <div className="relative flex min-h-screen flex-col h-full">
-                    <Navbar />
-                    <div className="flex-1">{children}</div>
-                </div>
+                <Providers>
+                    <div className="relative flex min-h-screen flex-col h-full">
+                        <Navbar />
+                        <div className="flex-1">{children}</div>
+                    </div>
+                </Providers>
             </body>
         </html>
     );
@@ -34,7 +38,9 @@ function Navbar() {
                             <NavigationMenuLink className="font-bold text-xl">Pollar</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
-                    <NavigationMenuItem className="mt-0"></NavigationMenuItem>
+                    <NavigationMenuItem className="mt-0">
+                        <ThemeSwitch />
+                    </NavigationMenuItem>
                 </NavigationMenuList>
             </div>
         </NavigationMenu>
