@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Providers } from "@/components/providers";
 import { ThemeSwitch } from "@/components/themeSwitch";
 
+export const runtime = "experimental-edge";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
