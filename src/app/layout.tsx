@@ -11,8 +11,6 @@ export const metadata = {
     description: "Create, answer polls"
 };
 
-export const runtime = "experimental-edge";
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className="h-screen dark">
