@@ -22,7 +22,7 @@ async function getResults(pollId: number) {
 
 export default async function PollResults({ params }: { params: { id: number } }) {
     const options = await getResults(params.id);
-    const totalResponses = options.reduce((acc, option) => acc + option.responses, 0);
+    const totalResponses = options.reduce((acc, option) => acc + parseInt(option.responses.toString()), 0);
 
     return (
         <div className="space-y-4">
@@ -34,7 +34,7 @@ export default async function PollResults({ params }: { params: { id: number } }
                         <Label>{option.text}</Label>
                         <div className="relative group">
                             <Progress value={percentage} className="h-8" />
-                            <div className={cn("absolute inset-y-0 left-4 flex items-center font-extrabold", percentage > 3 && "text-black")}>
+                            <div className={cn("absolute inset-y-0 left-4 flex items-center font-extrabold", percentage > 3 && "dark:text-black text-white")}>
                                 {option.responses}
                             </div>
                         </div>
